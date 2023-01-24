@@ -7,7 +7,7 @@ library(stringr)
 setwd(dirname(rstudioapi::getSourceEditorContext()$path)) # 작업폴더 설정
 getwd()   # 확인
 
-loc <- read.csv("c://github/r/excersise/d01_code/sigun_code/sigun_code.csv", fileEncoding="UTF-8")  #  지역코드
+loc <- read.csv("C:\\GitHub/R/Exercise/d01_code/sigun_code/sigun_code.csv", fileEncoding="UTF-8")  #  지역코드
 loc$code <- as.character(loc$code) # 행정구역명 문자 변환     
 head(loc, 2) # 확인
 
@@ -79,8 +79,8 @@ for(i in 1:length(urlList)) {
   # 응답 내용 저장
   regionNm <- subset(loc, code == str_sub(urlList[i], 115, 119))$addr_1  # 지역명
   month <- str_sub(urlList[i], 130, 135)
-  path <- as.character(paste0("./02_raw_data/", regionNm, "_", month, ".csv"))
+  path <- as.character(paste0("C:\\GitHub/R/Exercise/d02_raw_data/", regionNm, "_", month, ".csv"))
   write.csv(aptBind, path)
-  msg <- paste0("[", i, "/", length(urlList), "] 수집한 데이터를 [", path, "]에 저장합니다")
+  msg = paste0("[", i, "/", length(urlList), "] 수집한 데이터를 [", path, "]에 저장합니다")
   cat(msg, "\n\n")
 }
